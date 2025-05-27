@@ -74,6 +74,32 @@
 
     .image-container {
       margin: 1em 0;
+      column-span: all;
+      text-align: center;
+    }
+
+    /* Image sizing rules */
+    .image-container img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 4px;
+    }
+
+    /* Specific sizing for different image types */
+    .image-container.full-width img {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .image-container.medium img {
+      max-width: 700px;
+    }
+
+    .image-container.compact img {
+      max-width: 500px;
     }
 
     .caption {
@@ -81,6 +107,9 @@
       color: #666;
       text-align: center;
       margin-top: 0.5em;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     ul {
@@ -94,6 +123,21 @@
 
     p {
       margin: 0 0 1em 0;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .two-column-layout {
+        column-count: 1;
+      }
+      
+      .article-title {
+        font-size: 2em;
+      }
+      
+      .image-container img {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -122,6 +166,15 @@
       that directly impact the bottom line [1]</strong>.
     </p>
 
+    <p>
+      Consider this: a vessel operating with heavy calcareous fouling (FR5) faces a staggering 
+      193% increase in frictional resistance. For the 93-meter Coral Adventurer cruise ship 
+      studied by the University of Melbourne team, this translated to an additional 
+      <strong>$1,273 per hour</strong> in fuel costs and <strong>1.8 tonnes of extra CO₂ 
+      emissions per hour</strong> when maintaining cruise speed [1]. These are not theoretical 
+      projections—they are measured realities that demand immediate industry attention.
+    </p>
+
     <h2 class="section-title">Measuring the Unmeasurable</h2>
     <p>
       The 2024 University of Melbourne and Franmarine study has accomplished 
@@ -132,6 +185,15 @@
       even light slime (FR1) can increase fuel consumption by up to 10%, 
       while moderate slime (FR2) pushes this penalty to 20–30% [1].
     </p>
+
+    <div class="image-container full-width">
+      <!-- Placeholder for tugboat scanning image -->
+      <img src="./assets/aquamars.png" alt="AQUAMARS scanning tugboat hull" />
+      <div class="caption">
+        Figure 1: AQUAMARS technology captures sub-millimeter surface roughness data 
+        on the Rio Tinto tugboat hull during the University of Melbourne study.
+      </div>
+    </div>
 
     <div class="info-box">
       <strong>Key Research Findings</strong>
@@ -147,128 +209,175 @@
     <h2 class="section-title">The Operational Impact</h2>
     <p>
       These findings transform what was once a maintenance issue into a critical 
-      operational consideration. With shipping accounting for approximately 3% of global 
-      CO<sub>2</sub> emissions, the implications extend beyond fuel bills to regulatory 
-      compliance and environmental stewardship. The International Maritime Organization's 
-      tightening emissions intensity requirements (CII) make hull performance an increasingly 
-      crucial factor in operational planning [2].
+      operational consideration. For the Rio Tinto tugboat examined in the December 2024 
+      study, moderate fouling resulted in a 125% increase in skin friction coefficient 
+      and a 44.2% increase in total resistance at 13 knots. This equates to approximately 
+      <strong>$955 per hour</strong> in additional fuel costs and <strong>1.3 tonnes 
+      per hour</strong> of extra CO₂ emissions [2].
     </p>
 
-    <div class="image-container">
-      <img src="/api/placeholder/400/300" alt="Hull Fouling Underwater" />
+    <p>
+      With shipping accounting for approximately 3% of global CO₂ emissions, the 
+      implications extend beyond fuel bills to regulatory compliance and environmental 
+      stewardship. The International Maritime Organization's tightening emissions 
+      intensity requirements (CII) make hull performance an increasingly crucial 
+      factor in operational planning [3].
+    </p>
+
+    <div class="image-container medium">
+      <!-- Placeholder for cost vs speed chart -->
+      <img src="./assets/FoulingCostCalc.png" alt="Cost and emissions versus speed chart" />
       <div class="caption">
-        Figure 1: Early-stage biofilm development on a vessel hull, demonstrating the subtle 
-        but costly initial phases of marine growth. [Photo courtesy of Franmarine]
+        Figure 2: Operating costs and CO₂ emissions increase exponentially with speed 
+        for fouled hulls, as demonstrated by the University of Melbourne research.
+      </div>
+    </div>
+
+    <h2 class="section-title">The Science Behind the Numbers</h2>
+    <p>
+      The AQUAMARS (Advanced Quality Underwater Mapping and Analysis for Rough Surfaces) 
+      technology represents a paradigm shift in hull assessment. This diver-operated device 
+      uses eight high-resolution cameras to capture simultaneous images, creating 3D surface 
+      reconstructions with sub-millimeter accuracy. The system measures critical parameters 
+      including equivalent sandgrain roughness (ks), which directly correlates to drag penalties [2].
+    </p>
+
+    <p>
+      What makes this research particularly valuable is its translation of complex fluid 
+      dynamics into practical operational metrics. The team's analysis revealed that fouling 
+      affects two primary resistance components: frictional resistance (which follows a cubic 
+      relationship with speed) and wave-making resistance (which increases even more rapidly). 
+      Understanding this relationship allows operators to make informed decisions about 
+      cleaning schedules based on actual performance data rather than arbitrary timelines.
+    </p>
+
+    <div class="image-container full-width">
+      <!-- Placeholder for 3D surface mapping visualization -->
+      <img src="./assets/HeatMapHullRoughness.png" alt="3D surface reconstruction showing hull roughness" />
+      <div class="caption">
+        Figure 3: AQUAMARS technology produces detailed 3D surface maps, revealing 
+        the heterogeneous nature of hull fouling and enabling precise drag calculations.
       </div>
     </div>
 
     <h2 class="section-title">Evidence-Based Solutions</h2>
     <p>
       The research points to several strategies for maintaining optimal hull performance, 
-      which have been recognized in multiple peer-reviewed studies [1, 3]:
+      which have been validated through both laboratory studies and full-scale vessel 
+      measurements [1, 2, 4]:
     </p>
     <ul>
       <li>
         <strong>Proactive Monitoring:</strong> Regular ROV and diver inspections can identify 
-        fouling at its earliest stages, when intervention is most cost-effective. Data shows 
-        early detection can prevent the exponential growth of both marine organisms and 
-        operational costs.
+        fouling at its earliest stages, when intervention is most cost-effective. The data 
+        shows that early detection can prevent the exponential growth of both marine organisms 
+        and operational costs.
       </li>
       <li>
-        <strong>Strategic Cleaning:</strong> Low-pressure hull grooming effectively manages 
-        biofilm without compromising coating integrity [3].
+        <strong>Strategic Cleaning:</strong> The research validates that gentle hull 
+        cleaning effectively manages biofouling without compromising coating integrity. The 
+        Coral Adventurer study demonstrated that timely intervention could save over 
+        $3 million annually in fuel costs alone [1].
       </li>
       <li>
         <strong>Comprehensive Approach:</strong> Combining propeller maintenance with hull 
-        cleaning yields compounded efficiency gains, as documented in both naval and commercial 
-        vessel studies [3].
+        cleaning yields compounded efficiency gains, as documented in both naval and 
+        commercial vessel studies [4].
       </li>
       <li>
-        <strong>Performance Tracking:</strong> Continuous monitoring of speed-power relationships 
-        provides early warning of efficiency losses, enabling data-driven maintenance decisions.
+        <strong>Performance Tracking:</strong> Continuous monitoring of speed-power 
+        relationships provides early warning of efficiency losses, enabling data-driven 
+        maintenance decisions.
       </li>
     </ul>
-
-    <h2 class="section-title">Digging Deeper: Insights from the Original Report</h2>
-    <p>
-      Beyond the broad fuel savings and environmental angles, the original full report [1] 
-      goes into detail about the underwater scanning process, including:
-    </p>
-    <ul>
-      <li>
-        <em>Multi-point scanning of hull sections:</em> Researchers captured data at numerous 
-        locations, allowing them to build a heat map of roughness variations.
-      </li>
-      <li>
-        <em>Equivalent sandgrain roughness calculations:</em> By quantifying roughness features 
-        in millimeters, the team could directly link them to frictional drag penalties.
-      </li>
-      <li>
-        <em>Speed-to-drag relationships:</em> The study highlights how increased roughness 
-        severely impacts fuel consumption as speed ramps beyond 8–10 knots.
-      </li>
-      <li>
-        <em>CO<sub>2</sub> and operational cost:</em> For a 32 m tug example, the report 
-        estimated that running at 13 kn with heavy fouling could add hundreds of dollars 
-        per hour to operating costs, while producing a proportional rise in CO<sub>2</sub> output.
-      </li>
-    </ul>
-    <p>
-      These granular findings provide practical targets for when and how to intervene 
-      with cleaning measures, emphasizing that a small amount of maintenance can offset 
-      large potential cost overruns.
-    </p>
 
     <h2 class="section-title">The Economic Imperative</h2>
     <p>
       The University of Melbourne study hasn't just confirmed industry suspicions—it has 
       provided a robust scientific framework for quantifying losses and justifying 
       investments in hull maintenance. For vessels operating on tight margins, 
-      these insights transform hull upkeep from a periodic necessity into a potent 
-      efficiency strategy.
+      these insights transform hull upkeep from a periodic necessity into a 
+      continuous optimization strategy.
     </p>
+
     <p>
-      The research presents a compelling case: in an era of rising fuel costs and 
-      stringent environmental regulations, maintaining optimal hull condition is not 
-      merely about vessel upkeep—it's about sustainable operations, both environmentally 
-      and economically. As the industry navigates toward a lower-carbon future, 
-      the path to efficiency increasingly depends on what happens beneath the waterline.
+      The numbers speak volumes: a typical commercial vessel operating 200 days 
+      annually could face additional fuel costs exceeding $2-3 million per year 
+      with moderate to heavy fouling. When multiplied across global fleets, the 
+      economic impact reaches tens of billions of dollars annually—costs that are 
+      ultimately passed to consumers through higher shipping rates.
+    </p>
+
+    <p>
+      Moreover, the environmental implications cannot be ignored. With each percentage 
+      point of increased resistance translating directly to higher emissions, hull 
+      fouling management becomes a critical component of any serious decarbonization 
+      strategy. The research demonstrates that maintaining clean hulls could reduce 
+      the global shipping industry's carbon footprint by millions of tonnes annually.
+    </p>
+
+    <h2 class="section-title">Looking Forward</h2>
+    <p>
+      As the maritime industry navigates toward a lower-carbon future, the University 
+      of Melbourne's research provides both a wake-up call and a roadmap. The technology 
+      and methodologies developed through these studies offer operators the tools to make 
+      informed, data-driven decisions about hull maintenance.
+    </p>
+
+    <p>
+      The research team continues to expand their database, with ongoing studies examining 
+      different vessel types, operating conditions, and fouling patterns. Future developments 
+      include real-time monitoring systems and predictive models that will enable even more 
+      precise optimization of cleaning schedules.
+    </p>
+
+    <p>
+      The message is clear: in an era of rising fuel costs and stringent environmental 
+      regulations, maintaining optimal hull condition is not merely about vessel upkeep—it's 
+      about sustainable operations, both environmentally and economically. The path to 
+      efficiency, quite literally, depends on what happens beneath the waterline.
     </p>
   </div>
 
   <!-- Fouling Cost Calculator reference -->
   <div class="two-column-layout">
-    <h2 class="section-title">Interactive Visualization for Non-Technical Audiences</h2>
+    <h2 class="section-title">Putting Research into Practice</h2>
     <p>
-      To make the study's insights more accessible, an online 
-      <strong>Fouling Cost Calculator</strong> has been deployed at 
-      <a href="https://mathew-harvey.github.io/FoulingCostCalculator/" target="_blank" rel="noopener">
-        https://mathew-harvey.github.io/FoulingCostCalculator/
+      To make these insights actionable, an online 
+      <strong>Fouling Cost Calculator</strong> has been developed and availble in the Tools section of 
+      <a href="https://www.marinestream.com.au" target="_blank" rel="noopener">
+        www.marinestream.com.au         
       </a>.
-      This tool offers a user-friendly interface that draws from the paper’s core findings 
-      to help operators visualize how varying levels of hull fouling (FR ratings) affect 
-      fuel costs and emissions. By adjusting simple sliders for speed and fouling levels, 
-      even non-technical stakeholders can see how incremental roughness translates 
-      into tangible operating cost increases and greater environmental impact.
+      This is based on the University of Melbourne research findings, 
+      allows operators to input vessel parameters and fouling conditions to receive 
+      immediate estimates of fuel penalties and emissions impacts. By translating 
+      complex fluid dynamics into practical cost projections, the calculator bridges 
+      the gap between academic research and operational decision-making. This calculator will become more accurate and useful over time as more vessels are scanned. 
     </p>
 
     <div class="info-box">
       <strong>References</strong>
       <ul>
         <li>
-          [1] L. Tsigaras, A. Kogios, J. Monty (2024). 
-          “Quantitative assessment of increased frictional drag due to hull fouling using 
-          underwater surface scanning.” University of Melbourne &amp; Franmarine Underwater Services.
+          [1] L. Tsigaras, A. Kogios, J. Monty (2025). 
+          "Quantitative assessment of increased frictional drag due to hull fouling using 
+          underwater surface scanning - Coral Adventurer Study." University of Melbourne 
+          &amp; Franmarine Underwater Services.
         </li>
         <li>
-          [2] International Maritime Organization (2023). 
-          “2023 Guidelines for the control and management of ships' biofouling to minimize 
-          the transfer of invasive aquatic species (MEPC.378(80)).”
+          [2] Kevin, L. Tsigaras, A. Kogios, J. Monty (2024). 
+          "Quantitative assessment of increased frictional drag due to hull fouling using 
+          underwater surface scanning - Rio Tinto Tugboat Study." University of Melbourne.
         </li>
         <li>
-          [3] Hunsucker, H., Swain, G. &amp; Olson, E. (2018). 
-          “Performance assessment of proactive hull grooming on commercial vessels.” 
-          <em>Ocean Engineering</em>, 148, 193–202.
+          [3] International Maritime Organization (2023). 
+          "Guidelines for the control and management of ships' biofouling to minimize 
+          the transfer of invasive aquatic species (MEPC.378(80))."
+        </li>
+        <li>
+          [4] Schultz, M.P., Bendick, J.A., Holm, E.R. &amp; Hertel, W.M. (2011). 
+          "Economic impact of biofouling on a naval surface ship." 
+          <em>Biofouling</em>, 27(1), 87-98.
         </li>
       </ul>
     </div>
